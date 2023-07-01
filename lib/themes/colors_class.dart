@@ -8,4 +8,5 @@ class Pallete {
   static const textFormColor = Color.fromARGB(255, 250, 249, 239);
   static const grey = Colors.grey;
   static const backgroundColor = Color.fromARGB(255, 240, 239, 239);
+  static const tabColor = Color.fromARGB(255, 247, 222, 1);
 }
