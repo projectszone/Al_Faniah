@@ -1,3 +1,4 @@
+import 'package:al_faniah/constants/constants.dart';
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/themes/text_class.dart';
@@ -6,11 +7,13 @@ import 'package:flutter/material.dart';
 class CustomLoginSignUpButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onTap;
+  final String? path;
 
   const CustomLoginSignUpButton({
     Key? key,
     required this.buttonText,
     required this.onTap,
+    this.path,
   }) : super(key: key);
 
   @override
@@ -19,7 +22,7 @@ class CustomLoginSignUpButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: (){},
+        onTap: () {},
         child: Container(
           height: mq.height * .06,
           width: double.infinity,
@@ -27,14 +30,23 @@ class CustomLoginSignUpButton extends StatelessWidget {
             color: Pallete.blue,
             borderRadius: BorderRadius.circular(15),
           ),
-          child: Center(
-            child: Text(buttonText,
-            style: TextDesign.buttonText
-            ,),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                path!,
+                width: 45,
+              ),
+              Center(
+                child: Text(
+                  buttonText,
+                  style: TextDesign.buttonText,
+                ),
+              ),
+            ],
           ),
         ),
-        
-    ),
+      ),
     );
   }
 }
