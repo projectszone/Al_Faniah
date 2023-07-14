@@ -2,6 +2,7 @@ import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/themes/text_class.dart';
 import 'package:al_faniah/user/bottom_navigation_screens/features/auto_page_change.dart';
+import 'package:al_faniah/user_modules/screens/all_services.dart';
 import 'package:al_faniah/widgets/services_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -87,67 +88,84 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                   ],
                 ),
               ),
-              const Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'SERVICES',
-                  style: TextDesign.titleText,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'SERVICES',
+                    style: TextDesign.titleText,
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, 
+                      MaterialPageRoute(builder: (_) =>
+                      AllServices()));
+                    },
+                    child: Container(
+                      child: const Row(
+                        children: [
+                          Text('See All', style: TextStyle(fontSize: 22,color: Pallete.blue),),
+                          Icon(Icons.arrow_forward_ios,color: Pallete.blue,size: 22,)
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
               SizedBox(
                 height: mq.height * .02,
               ),
-              SingleChildScrollView(
+              const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/women_salon.png',
                       serviceName: 'Women Salon',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/spa.png',
                       serviceName: 'Spa For Women',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/man_salon.png',
                       serviceName: 'Men Salon',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/plumber.png',
                       serviceName: 'Plumber',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/massage.png',
                       serviceName: 'Man Massage',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/electrician.png',
                       serviceName: 'Electrician',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/cleaning.png',
                       serviceName: 'Home Cleaner',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/carpenter.png',
                       serviceName: 'Carpenter',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/appliance.png',
                       serviceName: 'Home Appliance\nRepair',
                     ),
                     CustomServiceContainer(
-                      onTap: () {},
+                      categoryText: 'Text',
                       serviceImage: 'assets/icons/ac_repair.png',
                       serviceName: 'AC Repair',
                     ),

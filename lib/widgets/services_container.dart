@@ -1,14 +1,15 @@
 import 'package:al_faniah/themes/colors_class.dart';
+import 'package:al_faniah/user_modules/screens/vendors/vendors_list.dart';
 import 'package:flutter/material.dart';
 
 class CustomServiceContainer extends StatelessWidget {
   final String serviceImage;
-  final VoidCallback onTap;
+  final String categoryText;
   final String serviceName;
 
   const CustomServiceContainer({
     Key? key,
-    required this.onTap,
+    required this.categoryText,
     required this.serviceImage,
     required this.serviceName,
   }) : super(key: key);
@@ -19,7 +20,11 @@ class CustomServiceContainer extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: onTap,
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_) =>  VendorList(
+              categoryText : categoryText,
+            )));
+          },
           child: SizedBox(
             height: cardHeightWidth,
             width: cardHeightWidth,
@@ -31,8 +36,9 @@ class CustomServiceContainer extends StatelessWidget {
               elevation: 2,
               child: Center(
                 child: Image.asset(
-                  
                   serviceImage,
+                  height: 40,
+                  width: 40,
                   fit: BoxFit.fill,),
               ),
             ),

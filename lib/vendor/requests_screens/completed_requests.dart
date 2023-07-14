@@ -2,10 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hsp_vendor/colors/app_theme.dart';
-import 'package:hsp_vendor/utils/utils.dart';
-
-import '../user/user_data.dart';
 
 class CompletedRequests extends StatefulWidget {
   const CompletedRequests({Key? key}) : super(key: key);
@@ -22,10 +18,10 @@ class _CompletedRequestsState extends State<CompletedRequests> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.colors.background,
+      // backgroundColor: AppTheme.colors.background,
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        backgroundColor: AppTheme.colors.appbar,
+        // backgroundColor: AppTheme.colors.appbar,
         title:  Text(
           'COMPLETED REQUESTS',
           style:GoogleFonts.arsenal(
@@ -50,13 +46,17 @@ class _CompletedRequestsState extends State<CompletedRequests> {
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
                   return Text(snapshot.error.toString(),
-                      style: TextStyle(color: AppTheme.colors.appbar));
+                      style: TextStyle(
+                        // color: AppTheme.colors.appbar
+                        ));
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(
                     child: Text("Loading",
-                        style: TextStyle(color: AppTheme.colors.appbar)),
+                        style: TextStyle(
+                          // color: AppTheme.colors.appbar
+                          )),
                   );
                 }
                 return Padding(
@@ -69,7 +69,7 @@ class _CompletedRequestsState extends State<CompletedRequests> {
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: AppTheme.colors.background,
+                              // color: AppTheme.colors.background,
                               boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 3,
@@ -94,7 +94,7 @@ class _CompletedRequestsState extends State<CompletedRequests> {
                                           title: Text(
                                             'Delete Order?',
                                             style:GoogleFonts.arsenal(
-                                                color: AppTheme.colors.appbar,
+                                                // color: AppTheme.colors.appbar,
                                                 fontWeight: FontWeight.bold),
                                           ),
 
@@ -240,8 +240,9 @@ class _CompletedRequestsState extends State<CompletedRequests> {
                                                     'Cancel',
                                                     style:GoogleFonts.arsenal(
                                                         fontSize: 18,
-                                                        color: AppTheme
-                                                            .colors.appbar),
+                                                        // color: AppTheme
+                                                        //     .colors.appbar
+                                                            ),
                                                   ),
                                                   onPressed: () {
                                                     Navigator.pop(context);
@@ -271,25 +272,31 @@ class _CompletedRequestsState extends State<CompletedRequests> {
                             style: ListTileStyle.list,
 
                             dense: true,
-                            title: Text("ORDER COMPLETED      ${document['order_date']}",style:GoogleFonts.arsenal(color: AppTheme.colors.appbar,fontWeight: FontWeight.bold,fontSize: 18),),
+                            title: Text("ORDER COMPLETED      ${document['order_date']}",style:GoogleFonts.arsenal(
+                              // color: AppTheme.colors.appbar,
+                              fontWeight: FontWeight.bold,fontSize: 18),),
                             subtitle: Text('Long Press To Delete',style:GoogleFonts.arsenal(fontStyle:FontStyle.italic, color: Colors.blue,fontSize: 18),),
                             trailing: IconButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (_)=> UserData(
-                                    userId: document,
-                                    OrderId : document.get('id'),
-                                  )));
+                                  // Navigator.push(context, MaterialPageRoute(builder: (_)=> UserData(
+                                  //   userId: document,
+                                  //   OrderId : document.get('id'),
+                                  // )));
                                 },
-                                icon: Icon(Icons.info, color: AppTheme.colors.appbar,size: 34,)),
+                                icon: Icon(Icons.info,
+                                //  color: AppTheme.colors.appbar,
+                                 size: 34,)),
 
                             shape: RoundedRectangleBorder(
 
-                                side: BorderSide(width: 1, color: AppTheme.colors.appbar),
+                                side: BorderSide(width: 1, 
+                                // color: AppTheme.colors.appbar
+                                ),
                                 borderRadius: BorderRadius.circular(5)
                             ),
-                            tileColor: AppTheme.colors.background,                        ),
+                            // tileColor: AppTheme.colors.background,                        ),
                         ),
-                      );
+                      ));
                     }).toList(),
                   ),
                 );

@@ -1,5 +1,6 @@
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
+import 'package:al_faniah/user/bottom_navigation_screens/bottom_navigation_screen.dart';
 import 'package:al_faniah/vendor/screens/vendor_home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,8 @@ class _LoginAsScreenState extends State<LoginAsScreen> {
               height: mq.height * .01,
             ),
             GestureDetector(
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => UserBottomNavigationScreen())),
               child: Container(
                 height: 100,
                 width: 100,

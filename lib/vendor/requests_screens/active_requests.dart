@@ -8,8 +8,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hsp_vendor/colors/app_theme.dart';
-import 'package:hsp_vendor/user/user_data.dart';
 import 'package:http/http.dart' as http;
 
 class ActiveRequest extends StatefulWidget {
@@ -94,6 +92,7 @@ class _ActiveRequestState extends State<ActiveRequest> {
       await flutterLocalNotificationsPlugin.show(0, message.notification?.title,message.notification?.body, platformChannelSpecifies,
           payload: message.data['body']);
     });
+ 
   }
   @override
   void initState() {
@@ -104,10 +103,10 @@ class _ActiveRequestState extends State<ActiveRequest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.colors.background,
+      // backgroundColor: AppTheme.colors.background,
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        backgroundColor: AppTheme.colors.appbar,
+        // backgroundColor: AppTheme.colors.appbar,
         title:   Text('ACTIVE REQUESTS', style:GoogleFonts.arsenal(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white ),),
       ),
 
@@ -127,11 +126,15 @@ class _ActiveRequestState extends State<ActiveRequest> {
                   .snapshots(),
               builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
-                  return Text('Something went wrong',style: TextStyle(color: AppTheme.colors.appbar));
+                  return Text('Something went wrong',style: TextStyle(
+                    // color: AppTheme.colors.appbar
+                    ));
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return  Center(child: Text("Loading",style: TextStyle(color: AppTheme.colors.appbar)),);
+                  return  Center(child: Text("Loading",style: TextStyle(
+                    // color: AppTheme.colors.appbar
+                    )),);
                 }
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -142,7 +145,7 @@ class _ActiveRequestState extends State<ActiveRequest> {
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: AppTheme.colors.background,
+                              // color: AppTheme.colors.background,
                               boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 3,
@@ -164,7 +167,7 @@ class _ActiveRequestState extends State<ActiveRequest> {
                                       title: Text(
                                         'Order Completed',
                                         style:GoogleFonts.arsenal(
-                                            color: AppTheme.colors.appbar,
+                                            // color: AppTheme.colors.appbar,
                                             fontWeight: FontWeight.bold),
                                       ),
 
@@ -309,7 +312,8 @@ class _ActiveRequestState extends State<ActiveRequest> {
                                               child:Text(
                                                 'No',
                                                 style:GoogleFonts.arsenal(
-                                                    color: AppTheme.colors.appbar,),
+                                                    // color: AppTheme.colors.appbar,
+                                                    ),
                                               ),
 
                                           ),
@@ -355,23 +359,34 @@ class _ActiveRequestState extends State<ActiveRequest> {
 
                             dense: true,
 
-                            title: Text("ORDER IN PROGRESS      ${document['order_date']}",style:GoogleFonts.arsenal(color: AppTheme.colors.appbar,fontWeight: FontWeight.bold,fontSize: 18),),
-                            subtitle: Text('Tap to See Details',style:GoogleFonts.arsenal(fontStyle:FontStyle.italic, color: Colors.blue,fontSize: 18),),
+                            title: Text("ORDER IN PROGRESS      ${document['order_date']}",style:GoogleFonts.arsenal(
+                              // color: AppTheme.colors.appbar,
+                              fontWeight: FontWeight.bold,fontSize: 18),),
+                            subtitle: Text('Tap to See Details',
+                            style:GoogleFonts.arsenal(
+                              fontStyle:FontStyle.italic, color: Colors.blue,
+                              fontSize: 18),),
                             trailing: IconButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (_)=> UserData(
-                                    userId: document,
-                                    OrderId : document.get('id'),
-                                  )));
+                                  // Navigator.push(context, 
+                                  // MaterialPageRoute(builder: (_)=> UserData(
+                                  //   userId: document,
+                                  //   OrderId : document.get('id'),
+                                  // )));
                                 },
-                                icon: Icon(Icons.info, color: AppTheme.colors.appbar,size: 34,)),
+                                icon: Icon(Icons.info, 
+                                // color: AppTheme.colors.appbar,
+                                size: 34,)),
 
                             shape: RoundedRectangleBorder(
 
-                                side: BorderSide(width: 1, color: AppTheme.colors.appbar),
+                                side: BorderSide(width: 1, 
+                                // color: 
+                                // AppTheme.colors.appbar
+                                ),
                                 borderRadius: BorderRadius.circular(5)
                             ),
-                            tileColor: AppTheme.colors.background,
+                            // tileColor: AppTheme.colors.background,
                           ),
                         ),
                       );
