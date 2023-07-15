@@ -1,12 +1,13 @@
+import 'package:al_faniah/auth/screens/login_as_screen.dart';
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
-import 'package:al_faniah/auth/screens/requests_screen.dart';
 import 'package:al_faniah/vendor/screens/reviews_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:al_faniah/vendor/screens/update_information.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:badges/badges.dart' as badge;
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+
+import 'package:flutter/material.dart';
 
 import '../requests_screens/active_requests.dart';
 import '../requests_screens/completed_requests.dart';
@@ -40,14 +41,14 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(),
               accountName: Text(
-                'Username',
+                'Nicole Thomas',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                     color: Colors.black),
               ),
               accountEmail: Text(
-                'User profession',
+                'Cleaner',
                 style: TextStyle(color: Colors.black),
               ),
               currentAccountPicture: badge.Badge(
@@ -63,10 +64,8 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
                   radius: 45,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.blue,
-                  child: Icon(
-                    Icons.person,
-                    size: 40,
-                  ),
+                  backgroundImage: NetworkImage(
+                      'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&uid=R109865333&ga=GA1.1.1714543575.1689421395&semt=ais'),
                 ),
               ),
             ),
@@ -114,7 +113,12 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => UpdateInformation()));
+              },
               leading: Icon(
                 Icons.update,
                 // color: AppTheme.colors.appbar,
@@ -126,12 +130,8 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
             ),
             ListTile(
               onTap: () {
-                // auth.signOut().then((value) {
-                //   Navigator.pushReplacement(context,
-                //       MaterialPageRoute(builder: (context) => HomeScreen()));
-                // }).onError((error, stackTrace) {
-                //   Utils().toastMessage(error.toString());
-                // });
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoginAsScreen()));
               },
               leading: Icon(
                 Icons.logout_rounded,
@@ -153,10 +153,10 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
             child: Center(
                 child: Text(
               'Al Faniah',
-              // style: GoogleFonts.arsenal(
-              //     fontSize: 50,
-              //     fontWeight: FontWeight.bold,
-              //     color: AppTheme.colors.appbar),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             )),
           ),
           SizedBox(
@@ -239,7 +239,7 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
                   ),
                 ],
               ),
-              child: const Center(
+              child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

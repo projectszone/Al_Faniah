@@ -1,4 +1,3 @@
-import 'package:al_faniah/constants/constants.dart';
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/themes/text_class.dart';

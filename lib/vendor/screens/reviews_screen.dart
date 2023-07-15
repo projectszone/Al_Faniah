@@ -37,10 +37,8 @@ class _ReviewsScreenState extends ConsumerState<ReviewsScreen> {
                       leading: CircleAvatar(
                         backgroundColor: Colors.black,
                         foregroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.person,
-                          size: 40,
-                        ),
+                        backgroundImage: NetworkImage(
+                            'https://img.freepik.com/free-photo/bearded-young-man-wearing-shirt_273609-5938.jpg?w=900&t=st=1689429063~exp=1689429663~hmac=557a51a52060f429df2f04ff1fab081b83aa39dba17a5c1bb78cf0a2c2220e18'),
                       ),
                       subtitle: Text(
                         'reviews',
@@ -62,6 +60,7 @@ class _ReviewsScreenState extends ConsumerState<ReviewsScreen> {
                             rating: 3,
                             itemBuilder: (context, index) => Icon(
                               Icons.star,
+                              color: Colors.yellow,
                             ),
                             itemCount: 5,
                             itemSize: 15.0,

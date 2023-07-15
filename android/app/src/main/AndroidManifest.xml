@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.al_faniah">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
    <application
         android:label="al_faniah"
         android:name="${applicationName}"
@@ -20,6 +24,9 @@
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
+              <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyA_Rf000hWvJWGC1D3sy9TTQ0gvNXtJd5k"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

@@ -1,11 +1,15 @@
-import 'package:al_faniah/onBoard_Screens/ob_screen_one.dart';
-import 'package:al_faniah/onBoard_Screens/ob_screen_three.dart';
-import 'package:al_faniah/onBoard_Screens/ob_screen_two.dart';
+import 'package:al_faniah/auth/screens/login_as_screen.dart';
+import 'package:al_faniah/themes/colors_class.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'intro1.dart';
+import 'intro2.dart';
+import 'intro3.dart';
+
 class OnBoardScreens extends StatefulWidget {
-  const OnBoardScreens({super.key});
+  const OnBoardScreens({Key? key}) : super(key: key);
 
   @override
   State<OnBoardScreens> createState() => _OnBoardScreensState();
@@ -18,7 +22,6 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
   // record for last page
   bool onLastPage = false;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +29,6 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
         children: [
 //pageview code
           PageView(
-            allowImplicitScrolling: true,
             controller: _pageController,
             onPageChanged: (index) {
               setState(() {
@@ -35,11 +37,11 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
             },
             children: const [
 // first page
-              OBScreenOne(),
+              IntroPage1(),
 // second page
-              OBScreenTwo(),
+              IntroPage2(),
 // third page
-              OBScreenThree(),
+              IntroPage3(),
             ],
           ),
 
@@ -47,24 +49,29 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
               ?
 // for last page
               InkWell(
-                onTap: (){
-                },
-                child: Container(
-                  alignment: Alignment(0,0.8),
+                  onTap: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => LoginAsScreen()));
+                  },
                   child: Container(
+                    alignment: Alignment(0, 0.8),
+                    child: Container(
                       width: 340,
                       height: 40,
                       decoration: BoxDecoration(
+                        color: Pallete.blue,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
                         child: Text(
                           'GET STARTED',
-                          ),
+                          style: GoogleFonts.lora(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
-                ),
-              )
+                  ),
+                )
 
 // for first two pages
               : Container(
@@ -86,10 +93,14 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
                               child: Center(
                                   child: Text(
                                 'SKIP',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Pallete.blue),
                               )))),
 
                       const SizedBox(
-                        width: 70,
+                        width: 60,
                       ),
 
 // smooth indicator
@@ -97,7 +108,9 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
                         controller: _pageController,
                         count: 3,
                         effect: WormEffect(
-                          ),
+                            dotHeight: 20,
+                            dotWidth: 20,
+                            activeDotColor: Pallete.blue),
                       ),
 
                       const SizedBox(
@@ -116,12 +129,15 @@ class _OnBoardScreensState extends State<OnBoardScreens> {
                               width: 80,
                               height: 30,
                               decoration: BoxDecoration(
-                                
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Center(
                                   child: Text(
                                 'NEXT',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               )))),
                     ],
                   ),
