@@ -1,3 +1,4 @@
+import 'package:al_faniah/auth/screens/login_with_google.dart';
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/user/bottom_navigation_screens/bottom_navigation_screen.dart';
@@ -31,17 +32,21 @@ class _LoginAsScreenState extends State<LoginAsScreen> {
               height: mq.height * .05,
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => VendorHomeScreen())),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LoginWithGoogle(
+                            type: 'vendor',
+                          ))),
               child: Container(
                 height: 100,
                 width: 100,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(color: Pallete.blue)),
-                child: Icon(
-                  Icons.person,
-                  size: 50,
+                child: Image.asset(
+                  'assets/icons/plumber.png',
+                  width: 40,
                 ),
               ),
             ),
@@ -56,8 +61,12 @@ class _LoginAsScreenState extends State<LoginAsScreen> {
               height: mq.height * .01,
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => UserBottomNavigationScreen())),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LoginWithGoogle(
+                            type: 'user',
+                          ))),
               child: Container(
                 height: 100,
                 width: 100,

@@ -1,10 +1,6 @@
-import 'dart:io';
-
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:badges/badges.dart ' as badge;
-import 'package:badges/badges.dart%20';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UpdateInformation extends StatefulWidget {
   const UpdateInformation({Key? key}) : super(key: key);
@@ -107,12 +103,12 @@ class _UpdateInformationState extends State<UpdateInformation> {
                   },
                   child: badge.Badge(
                     badgeContent: Icon(Icons.edit),
-                    position: BadgePosition.bottomEnd(bottom: 5, end: 10),
+                    position: badge.BadgePosition.bottomEnd(bottom: 5, end: 10),
                     showBadge: true,
-                    badgeStyle: BadgeStyle(
+                    badgeStyle: badge.BadgeStyle(
                       badgeColor: Colors.blue,
                     ),
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 90,
                       backgroundImage: NetworkImage(
                         'https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg&uid=R109865333&ga=GA1.1.1714543575.1689421395&semt=ais',

@@ -148,8 +148,6 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
 
       body: Column(
         children: [
-          
-
           // image code
           const Center(
             child: Image(

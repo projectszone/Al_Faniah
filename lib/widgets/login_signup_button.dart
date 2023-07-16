@@ -21,7 +21,7 @@ class CustomLoginSignUpButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           height: mq.height * .06,
           width: double.infinity,
