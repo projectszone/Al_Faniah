@@ -6,11 +6,15 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final IconData prefixIcon;
   final IconData? suffixIcon;
+  final VoidCallback? onTap;
+  final TextEditingController controller;
 
   const CustomTextFormField({
     required this.hintText,
     required this.prefixIcon,
     this.suffixIcon,
+    required this.controller,
+    this.onTap,
   });
 
   @override
@@ -18,6 +22,7 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        onTap: onTap,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextDesign.simpleText,

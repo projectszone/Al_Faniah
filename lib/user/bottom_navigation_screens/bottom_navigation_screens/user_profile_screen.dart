@@ -1,6 +1,10 @@
+import 'package:al_faniah/auth/screens/login_as_screen.dart';
 import 'package:al_faniah/main.dart';
 import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/themes/text_class.dart';
+import 'package:al_faniah/user/bottom_navigation_screens/bottom_navigation_screens/user_edit_profile.dart';
+import 'package:al_faniah/user_modules/screens/dummy.dart';
+import 'package:al_faniah/user_modules/screens/vendors/vendor_reviews.dart';
 import 'package:al_faniah/widgets/custom_list_tile.dart';
 import 'package:al_faniah/widgets/outlined_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -42,36 +46,60 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   SizedBox(height: mq.height * .01,),
                   CustomOutlinedButton(
                     buttonText: 'Edit Profile', 
-                    onPressed:(){}),
+                    onPressed:(){
+                      Navigator.push(context, MaterialPageRoute(builder: (_)
+                      => const UserEditScreen()));
+                    }),
                     SizedBox(height: mq.height * .01,),
                     CustomListTile(
                       leading: CupertinoIcons.bubble_left_bubble_right_fill, 
                       title: 'Help Center', 
-                      onTap: (){}),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       CustomListTile(
                       leading: Icons.abc_outlined, 
                       title: 'About Company', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       CustomListTile(
                       leading: CupertinoIcons.star_fill, 
                       title: 'My Rating', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => VendorReviewScreen()));
+                      }),
                       CustomListTile(
                       leading: CupertinoIcons.hand_thumbsup_fill, 
                       title: 'Rate Us', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       CustomListTile(
                       leading: CupertinoIcons.creditcard_fill, 
                       title: 'Add Payment Method', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       CustomListTile(
                       leading: Icons.privacy_tip, 
                       title: 'Privacy Policy', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       CustomListTile(
-                      leading: CupertinoIcons.collections_solid, 
+                      leading: Icons.description, 
                       title: 'Terms and Conditions', 
-                      onTap: (){}),
+                      onTap: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => DummyData()));
+                      }),
                       Padding(
       padding: const EdgeInsets.all(2.0),
       child: Card(
@@ -80,7 +108,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: ListTile(
           leading: Icon(Icons.logout, color: Pallete.red,size: 26,),
           title: Text('Logout', style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),),
-          onTap: (){},
+          onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (_)
+                        => LoginAsScreen()));
+          },
         ),
       ),
     )

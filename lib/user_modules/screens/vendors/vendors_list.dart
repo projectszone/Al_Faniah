@@ -52,7 +52,7 @@ class _VendorListState extends State<VendorList> {
                   city: 'Multan', 
                   rating: '5.0', 
                   onTap: (){
-                    Navigator.push(context, 
+                    Navigator.pushReplacement(context, 
                     MaterialPageRoute(builder: (_) => const VendorInformationScreen()));
                   },
                   ),

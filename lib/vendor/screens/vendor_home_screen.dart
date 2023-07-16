@@ -148,27 +148,14 @@ class _VendorHomeScreenState extends ConsumerState<VendorHomeScreen> {
 
       body: Column(
         children: [
-          Container(
-            padding: EdgeInsets.only(top: mq.height * 0.05),
-            child: Center(
-                child: Text(
-              'Al Faniah',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            )),
-          ),
-          SizedBox(
-            height: mq.height * 0.06,
-          ),
+          
 
           // image code
           const Center(
             child: Image(
               height: 250,
               width: 250,
-              image: AssetImage('images/splash.png'),
+              image: AssetImage('assets/icons/logo.png'),
             ),
           ),
 

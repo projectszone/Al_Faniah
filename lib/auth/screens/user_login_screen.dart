@@ -14,6 +14,8 @@ class UserLoginScreen extends StatefulWidget {
 }
 
 class _UserLoginScreenState extends State<UserLoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
@@ -45,11 +47,13 @@ class _UserLoginScreenState extends State<UserLoginScreen> {
             SizedBox(
               height: mq.height * .07,
             ),
-            const CustomTextFormField(
+            CustomTextFormField(
+              controller: emailController,
               hintText: 'Enter Email',
               prefixIcon: CupertinoIcons.mail,
             ),
-            const CustomTextFormField(
+            CustomTextFormField(
+              controller: passwordController,
               hintText: 'Enter Password',
               prefixIcon: CupertinoIcons.lock_circle,
               suffixIcon: CupertinoIcons.eye_fill,

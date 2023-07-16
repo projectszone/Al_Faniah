@@ -3,6 +3,7 @@ import 'package:al_faniah/themes/colors_class.dart';
 import 'package:al_faniah/themes/text_class.dart';
 import 'package:al_faniah/user/bottom_navigation_screens/features/auto_page_change.dart';
 import 'package:al_faniah/user_modules/screens/all_services.dart';
+import 'package:al_faniah/widgets/service_card.dart';
 import 'package:al_faniah/widgets/services_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -172,6 +173,29 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: mq.height * .015,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomServiceCard(
+                    imageUrl: 'assets/images/plumber.jpg', 
+                    text: 'Plumber', 
+                    onTap: (){},
+                    ),
+                    CustomServiceCard(
+                    imageUrl: 'assets/images/plumber.jpg', 
+                    text: 'Plumber', 
+                    onTap: (){},
+                    ),
+                    CustomServiceCard(
+                    imageUrl: 'assets/images/plumber.jpg', 
+                    text: 'Plumber', 
+                    onTap: (){},
+                    ),
+                ],
+              ),
+
             ],
           ),
         ),
